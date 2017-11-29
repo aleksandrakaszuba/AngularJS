@@ -21,8 +21,8 @@
                 templateUrl: "partials/credits.html"
             });
              //HTML5 History API
-/*   $locationProvider.html5Mode({ enabled: true, requireBase: true }).hashPrefix('!');
+     //   $locationProvider.html5Mode(true).hashPrefix('!');
     });
-*/
+
 
 })()
