@@ -2,7 +2,7 @@
 	'use strict';
 
 	var myApp = angular.module("myApp",['ngRoute'])
-    myApp.config(function($routeProvider) {
+    myApp.config(function($routeProvider, $locationProvider) {
         $routeProvider
        
              .when("/", {
@@ -21,7 +21,7 @@
                 templateUrl: "partials/credits.html"
             });
              //HTML5 History API
-     //   $locationProvider.html5Mode(true).hashPrefix('!');
+     //   $locationProvider.html5Mode(true);
     });
 
 
