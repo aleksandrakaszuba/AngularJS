@@ -6,7 +6,7 @@
         $routeProvider
        
              .when("/", {
-                templateUrl: "partials/intro.html"
+                templateUrl: "index.html"
             })
             .when("/installation", {
                 templateUrl: "partials/installation.html"
