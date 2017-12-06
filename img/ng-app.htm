@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://www.nafrontendzie.pl/podstawy-angularjs-niezbedne-minimum -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Podstawy AngularJS - minimum które musisz znać</title>
+  
+    <meta name="description" content="Jakiś czas temu pisałem tutaj na blogu na temat różnego rodzaju frameworków JavaScript. Dla przypomnienia, porównałem w nim takie frameworki jak BackboneJS, ...">
+  
+
+  
+    <meta property="og:title" content="Podstawy AngularJS - minimum które musisz znać">
+  
+
+  
+    <meta property="og:description" content="Jakiś czas temu pisałem tutaj na blogu na temat różnego rodzaju frameworków JavaScript. Dla przypomnienia, porównałem w nim takie frameworki jak BackboneJS, ...">
+  
+
+  
+    <meta property="og:type" content="article">
+  
+
+  <meta property="og:url" content="https://www.nafrontendzie.pl/podstawy-angularjs-niezbedne-minimum">
+
+  
+    <meta property="og:image" content="https://www.nafrontendzie.pl/assets/featured/kod-programu.jpg">
+  
+
+  
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Cabin:400,700|Titillium+Web:200,400,700,900&subset=latin-ext);html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,header,nav{display:block}h1{font-size:2em;margin:.67em 0}main{display:block}a{background-color:transparent;-webkit-text-decoration-skip:objects}img{border-style:none}svg:not(:root){overflow:hidden}button,input{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring{outline:1px dotted ButtonText}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}.hidden-menu{position:fixed;background:#595959;top:0;bottom:0;right:-250px;width:250px;margin-right:0;z-index:100}.hidden-menu__button{display:table-cell;vertical-align:middle;border:1px solid #fff;background:0 0;width:32px;height:32px;margin-left:10px;border-radius:50%;padding:0;position:absolute;right:27px;top:27px}.hidden-menu__button svg{width:20px;height:20px;fill:#fff}.hidden-menu__container{display:table;text-align:center;height:100%;width:100%}.hidden-menu__list{display:table-cell;vertical-align:middle;list-style:none;margin:0;padding:30px;text-align:center}.hidden-menu__list-item a{color:#fff;text-decoration:none;text-transform:uppercase;font-weight:600;margin:4px 0;display:inline-block}.page-content{width:100%;padding-top:90px;padding-bottom:60px}.page-content .wrapper{width:calc(100% - 10px);margin:0 auto}@media screen and (min-width:768px){.page-content .wrapper{width:750px}}@media screen and (min-width:992px){.page-content .wrapper{width:970px}}@media screen and (min-width:1200px){.page-content .wrapper{width:1170px}}.page-content .categories{margin-top:30px}@media screen and (min-width:768px){.page-content .categories{margin-top:50px}}.page-content .categories__button{display:none;font-family:Titillium Web,sans-serif;font-weight:700;font-size:1.6em;padding:11.25px;background:#fff;color:#10c982;border:none;border-radius:50px;text-decoration:none;text-transform:uppercase;width:calc(100% - 30px);margin:0;text-align:center;box-shadow:1px 1px 6px 1px hsla(0,0%,80%,.7)}@media screen and (min-width:768px){.page-content .categories__button{display:inline-block;text-align:left;width:auto;margin:0 10px 0 0;padding:15px 30px}}.page-content .categories__button--right{display:inline-block;width:100%}@media screen and (min-width:768px){.page-content .categories__button--right{float:right;margin-right:0;width:auto}}.page-content .categories__button .svg{height:20px;width:20px;vertical-align:bottom;margin-right:5px;fill:#10c982}.page-content .categories__button .svg--right{margin-right:0}.search-panel{visibility:hidden;opacity:0;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);z-index:1000}.search-panel__wrapper{display:table;text-align:center;width:100%;height:100%}.search-panel__form{display:table-cell;vertical-align:middle}.search-panel__form input{padding:15px;font-size:1.8em;border-radius:52px;border:1px solid #fff;width:calc(100% - 40px)}@media screen and (min-width:768px){.search-panel__form input{width:300px}}.cookie{box-sizing:border-box;position:fixed;bottom:-100px;left:0;width:100%;height:100px;background:#fff;text-align:center;box-shadow:0 -2px 12px 1px hsla(0,0%,80%,.8);display:table;z-index:1}.site-header{position:fixed;top:0;left:0;width:100%;height:90px;text-align:left;border-bottom:1px solid #f2f2f2;background:#fff;box-shadow:1px 3px 6px 1px hsla(0,0%,80%,.5);z-index:100}@media screen and (min-width:768px){.site-header{text-align:center}}.site-header .center-wrapper .title{line-height:90px;text-decoration:none;margin-left:20px}.site-header .center-wrapper .title__image{height:36px;width:36px;vertical-align:middle}.site-header .center-wrapper .title__text{display:none;font-size:2.4em;font-weight:700;font-family:Titillium Web,sans-serif;text-transform:uppercase;vertical-align:middle;margin:0}@media screen and (min-width:768px){.site-header .center-wrapper .title__text{display:inline;margin-left:3px}}.site-header .left-wrapper{display:none;position:absolute;left:10px;top:0;height:90px}@media screen and (min-width:992px){.site-header .left-wrapper{display:block}}.site-header .left-wrapper .icon{display:inline-block;border:1px solid #8c8c8c;background:#fff;width:32px;height:32px;margin-left:10px;border-radius:50%;margin-top:27px;visibility:visible}.site-header .left-wrapper .contact-icon{display:inline-block;line-height:32px}.site-header .left-wrapper .contact-icon svg{width:20px;height:20px;display:inline-block;vertical-align:middle;fill:#8c8c8c}.site-header .left-wrapper .contact-icon .rss{width:18px;height:18px;margin-top:-2px;margin-left:2px}.site-header .left-wrapper .contact-icon .envelope{width:18px;height:18px;margin-top:-2px}.site-header .right-wrapper{position:absolute;right:10px;top:0;height:90px}.site-header .right-wrapper .icon{display:table;text-align:center;border:1px solid #8c8c8c;background:#fff;width:32px;height:32px;margin-right:10px;border-radius:50%;margin-top:27px;opacity:1}.site-header .right-wrapper .icon .menu-icon{display:table-cell;vertical-align:middle;line-height:32px;border:none;background:0 0;padding:0}.site-header .right-wrapper .icon .menu-icon svg{width:20px;height:20px;display:inline-block;vertical-align:middle;fill:#8c8c8c}.site-header .right-wrapper .icon .menu-icon .bars{margin-top:-2px}.post-list__item{background:#fff;border-radius:4px;padding:15px;margin-bottom:40px;box-shadow:1px 1px 6px 1px hsla(0,0%,80%,.7)}@media screen and (min-width:768px){.post-list__item{padding:40px}}.post-list__item .meta{border-bottom:2px solid #f2f2f2;margin-bottom:10px;padding-bottom:10px}@media screen and (min-width:768px){.post-list__item .meta{margin-bottom:30px;padding-bottom:20px}}.post-list__item .meta__date{width:100%;margin-top:15px}@media screen and (min-width:768px){.post-list__item .meta__date{display:inline-block;width:95px;margin:0}}.post-list__item .meta__date-part{font-weight:600;font-size:1.5em;color:#595959}@media screen and (min-width:768px){.post-list__item .meta__date-part{display:block;font-size:3.4em;color:#000}.post-list__item .meta__date-part--day{line-height:1.1;display:inline;font-weight:700}.post-list__item .meta__date-part--month{display:inline;margin-left:1px;line-height:1.1;font-size:2.6em;font-weight:400}.post-list__item .meta__date-part--year{line-height:1;font-size:3.6em;font-weight:700;color:#999}}.post-list__item .meta__title{position:relative;width:100%;margin:0;font-size:2.6em;line-height:1.2}@media screen and (min-width:768px){.post-list__item .meta__title{width:calc(100% - 110px);float:right;height:76px;margin-left:10px;font-size:3em;line-height:1}}.post-list__item .meta__title a{text-decoration:none}@media screen and (min-width:768px){.post-list__item .meta__title a{position:absolute;bottom:-1px;left:0;line-height:1.3}}.post-list__item .excerpt *{font-style:normal}.post-list__item .excerpt.not-full a{color:inherit;text-decoration:none}.post-list__item .excerpt p{margin-top:18px;margin-bottom:0}.post-list__item .post-footer{margin-top:30px;padding-top:30px;border-top:2px solid #f2f2f2}.post-list__item .post-footer__text{display:none;font-size:1.7em;margin-right:5px;color:#595959;height:28px;vertical-align:bottom}@media screen and (min-width:768px){.post-list__item .post-footer__text{display:inline-block}}.post-list__item .post-footer__text svg{width:28px;height:28px;fill:#d9d9d9}.post-list__item .post-footer__category{display:inline-block;background:#a6a6a6;color:#fff;padding:3px 15px;border-radius:30px;text-decoration:none;font-size:1.4em;text-transform:capitalize}.post-list__item .post-footer__more{float:right;display:inline-block;font-size:1.5em;background:#10c982;color:#fff;border-radius:30px;padding:2px 15px;text-decoration:none}.react-ad{display:none;background:#10c982;background:linear-gradient(90deg,#10ce85,#0fbb79);border-radius:4px;padding:15px;margin-top:30px;box-shadow:1px 1px 6px 1px hsla(0,0%,80%,.7);position:relative;text-align:center}@media screen and (min-width:768px){.react-ad{display:block;padding:50px;margin-top:50px;text-align:left}}.react-ad__image{display:none;margin:0 auto}@media screen and (min-width:992px){.react-ad__image{display:inline;float:left;margin:0 40px 0 0}}.react-ad__text{color:#fff;line-height:30px;margin:0;font-size:1.6em}@media screen and (min-width:768px){.react-ad__text{font-size:2.4em}}.react-ad__link{color:#fff;font-size:1.4em;font-weight:600;text-decoration:none;display:inline-block;line-height:36px;border:2px solid #fff;padding:5px 20px 5px 24px;margin-top:10px;border-radius:60px;text-transform:uppercase}@media screen and (min-width:768px){.react-ad__link{position:absolute;right:50px;bottom:50px;font-size:2em;margin:0;padding:10px 30px 10px 34px}}.react-ad__link svg{height:18px;width:14px;fill:#fff;margin-left:5px;vertical-align:sub}@media screen and (min-width:768px){.react-ad__link svg{height:24px;width:18px}}.newsletter-panel .mc-field-group .exclamation{fill:#ff5b5b;height:25px;width:25px;position:absolute;right:12px;top:12px;display:none}@media screen and (min-width:768px){.newsletter-panel .mc-field-group .exclamation{height:30px;width:30px}}.post{background:#fff;border-radius:4px;padding:15px;margin-top:30px;box-shadow:1px 1px 6px 1px hsla(0,0%,80%,.7)}@media screen and (min-width:768px){.post{padding:50px;margin-top:50px}}@media screen and (min-width:992px){.post{padding:75px}}.post .post-header{position:relative}.post .post-header__image{width:calc(100% + 30px);margin:-15px -15px 0;border-radius:4px 4px 0 0}@media screen and (min-width:768px){.post .post-header__image{width:calc(100% + 100px);margin:-50px -50px 0}}@media screen and (min-width:992px){.post .post-header__image{width:calc(100% + 150px);margin:-75px -75px 0}}.post .post-header__title{margin:0;font-size:2.4em;line-height:1.2;margin-top:20px}@media screen and (min-width:768px){.post .post-header__title{font-size:3em;line-height:1;margin-top:50px}}.post .post-header__meta{font-family:Cabin,sans-serif;color:#999;border-bottom:2px solid #f2f2f2;margin-top:15px;margin-bottom:30px;padding-bottom:20px}@media screen and (min-width:768px){.post .post-header__meta{margin-bottom:50px;font-size:2.1em}}.post .post-header__categories{position:absolute;right:0;bottom:25px;display:none}@media screen and (min-width:768px){.post .post-header__categories{display:block}}.post .post-header__categories .icon{display:none;font-size:1.7em;margin-right:5px;color:#595959;height:28px;vertical-align:bottom}@media screen and (min-width:768px){.post .post-header__categories .icon{display:inline-block}}.post .post-header__categories .icon svg{width:28px;height:28px;fill:#d9d9d9}.post .post-header__categories .link{display:inline-block;background:#a6a6a6;color:#fff;padding:3px 15px;border-radius:30px;text-decoration:none;font-size:1.4em;line-height:1.6;text-transform:capitalize}.post .post-buttons{padding:30px 0 0;margin:20px 0;border-top:2px solid #f2f2f2;text-align:center}@media screen and (min-width:768px){.post .post-buttons{padding:50px 0 0;margin:40px 0 0}}.post .post-buttons a svg{width:22px;height:22px;fill:#10c982;vertical-align:bottom}html{position:relative;min-height:100%}body{font-size:62.5%;font-family:Titillium Web,sans-serif;background-color:#f2f2f2!important;padding:0;margin:0 0 60px}h1,h2{font-family:Cabin,sans-serif}h1{font-size:2.6em;font-size:2.8em}h2{font-size:2.4em}p,ul{font-size:1.8em}p,ul{font-weight:400;line-height:1.6;margin-bottom:1.2em}@media screen and (min-width:768px){p,ul{font-size:2.1em}}@media screen and (min-width:992px){p,ul{font-size:2.3em}}p{color:#333}a{color:#10c982;text-decoration:underline}.clear{clear:both}.hidden{display:none}::-webkit-input-placeholder{font-weight:200;color:#b3b3b3}::-moz-placeholder{font-weight:200;color:#b3b3b3}:-ms-input-placeholder{font-weight:200;color:#b3b3b3}:-moz-placeholder{font-weight:200}.separator{width:0;height:16px;border:1px solid #595959;margin:0 6px;display:inline-block}</style>
+  
+  <link rel="canonical" href="https://www.nafrontendzie.pl/podstawy-angularjs-niezbedne-minimum">
+  <link rel="alternate" type="application/rss+xml" title="Na Frontendzie" href="https://www.nafrontendzie.pl/feed.xml">
+
+  <link rel="shortcut icon" href="https://www.nafrontendzie.pl/assets/layout/nafrontendzie_logo_green.png">
+  <link rel="apple-touch-icon" href="https://www.nafrontendzie.pl/assets/layout/nafrontendzie_logo_green.png">
+  
+    <script id="facebook-jssdk" src="./ng-app_files/sdk.js"></script><script src="./ng-app_files/1010651252366299" async=""></script><script async="" src="./ng-app_files/fbevents.js"></script><script async="" src="./ng-app_files/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35451047-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+  
+  
+    <!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1010651252366299');
+  fbq('track', 'PageView');
+</script>
+<noscript>&lt;img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1010651252366299&amp;ev=PageView&amp;noscript=1"
+/&gt;</noscript>
+<!-- End Facebook Pixel Code -->
+
+  
+
+  <script type="text/javascript">/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+</script>
+  <script type="text/javascript">/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+</script>
+  <link rel="stylesheet" href="./ng-app_files/common-e6cb223e449b215178ab.bundle.css" as="style" onload="this.rel=&#39;stylesheet&#39;">
+  <noscript>
+    &lt;link rel="stylesheet" href="/assets/scripts/common-e6cb223e449b215178ab.bundle.css" /&gt;
+  </noscript>
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{height:100%;overflow:hidden;position:fixed;width:100%}.fb_shrink_active{opacity:1;transform:scale(1, 1);transition-duration:200ms;transition-timing-function:ease-out}.fb_shrink_active:active{opacity:.5;transform:scale(.75, .75)}</style><script src="./ng-app_files/embed.js" async="" data-timestamp="1512530773662"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.8b1ef88c40d2e84d9fab51b66cdcbf3e.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.8edffe1405dcc2d5eb5ee9d96a2866d1.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.55d1b090a7994f6e37c39e3c81dd6be8.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><script src="./ng-app_files/alfalfa.4a5fcca1fe50a757044dfd331b660625.js" async="" charset="UTF-8"></script></head>
+
+
+  <body cz-shortcut-listen="true">
+    
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '1726869894270320',
+      autoLogAppEvents : false,
+      xfbml            : false,
+      version          : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/pl_PL/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+    <header id="main-header" class="site-header collapsed" role="banner">
+  <div class="left-wrapper">
+    <div class="icon">
+      <a class="contact-icon" href="https://www.facebook.com/nafrontendzie/" title="Fanpage na Facebooku" target="_blank">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"></path></svg>
+      </a>
+    </div>
+    <div class="icon">
+      <a class="contact-icon" href="https://twitter.com/nafrontendzie" title="Konto na Twitterze" target="_blank">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"></path></svg>
+      </a>
+    </div>
+    <div class="icon">
+      <a class="contact-icon" href="https://www.nafrontendzie.pl/feed.xml" title="Kanał RSS" target="_blank">
+        <svg class="rss" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M576 1344q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm512 123q2 28-17 48-18 21-47 21h-135q-25 0-43-16.5t-20-41.5q-22-229-184.5-391.5t-391.5-184.5q-25-2-41.5-20t-16.5-43v-135q0-29 21-47 17-17 43-17h5q160 13 306 80.5t259 181.5q114 113 181.5 259t80.5 306zm512 2q2 27-18 47-18 20-46 20h-143q-26 0-44.5-17.5t-19.5-42.5q-12-215-101-408.5t-231.5-336-336-231.5-408.5-102q-25-1-42.5-19.5t-17.5-43.5v-143q0-28 20-46 18-18 44-18h3q262 13 501.5 120t425.5 294q187 186 294 425.5t120 501.5z"></path></svg>
+      </a>
+    </div>
+    <div class="icon">
+      <a class="contact-icon" href="mailto:kontakt@nafrontendzie.pl" title="Kontakt mailowy">
+        <svg class="envelope" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 1504v-768q-32 36-69 66-268 206-426 338-51 43-83 67t-86.5 48.5-102.5 24.5h-2q-48 0-102.5-24.5t-86.5-48.5-83-67q-158-132-426-338-37-30-69-66v768q0 13 9.5 22.5t22.5 9.5h1472q13 0 22.5-9.5t9.5-22.5zm0-1051v-24.5l-.5-13-3-12.5-5.5-9-9-7.5-14-2.5h-1472q-13 0-22.5 9.5t-9.5 22.5q0 168 147 284 193 152 401 317 6 5 35 29.5t46 37.5 44.5 31.5 50.5 27.5 43 9h2q20 0 43-9t50.5-27.5 44.5-31.5 46-37.5 35-29.5q208-165 401-317 54-43 100.5-115.5t46.5-131.5zm128-37v1088q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-1088q0-66 47-113t113-47h1472q66 0 113 47t47 113z"></path></svg>
+      </a>
+    </div>
+  </div>
+  <div class="center-wrapper">
+    <a class="title" href="https://www.nafrontendzie.pl/">
+      <svg class="title__image" width="128px" height="128px" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+          <title>nafrontendzie_logo_green</title>
+          <desc>Created with Sketch.</desc>
+          <defs>
+              <circle id="path-1" cx="64" cy="64" r="64"></circle>
+          </defs>
+          <g id="Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="nafrontendzie_logo_green">
+                  <g id="Oval-2">
+                      <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                      <circle stroke="#10C982" stroke-width="11.2" cx="64" cy="64" r="58.4"></circle>
+                  </g>
+                  <path d="M71.8053907,37.76 L62.22641,37.76 L62.22641,58.3832836 L61.0899207,58.3832836 L48.5885391,37.76 L30.08,37.76 L30.08,92.16 L48.9132503,92.16 L48.9132503,69.9940299 L50.1309173,69.9940299 L62.4699434,92.16 L71.8053907,92.16 L81.3843715,92.16 L81.3843715,77.2202985 L96.8893318,77.2202985 L96.8893318,61.8746269 L81.3843715,61.8746269 L81.3843715,53.1056716 L101.76,53.1056716 L101.76,37.76 L71.8053907,37.76 Z" id="Combined-Shape" fill="#10C982"></path>
+              </g>
+          </g>
+      </svg>
+      <span class="title__text">Na Frontendzie</span>
+    </a>
+  </div>
+  <div class="right-wrapper">
+    <div class="icon" id="menu-open">
+      <button class="menu-icon" title="Pokaż menu">
+        <svg class="bars" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+    <nav class="hidden-menu" role="navigation" id="hidden-menu">
+      <div class="hidden-menu__container">
+        <button class="hidden-menu__button" title="Ukryj menu" id="menu-close">
+          <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"></path></svg>
+        </button>
+        <ul class="hidden-menu__list">
+          <li class="hidden-menu__list-item">
+            <a href="https://www.nafrontendzie.pl/o-mnie">O mnie</a>
+          </li>
+          <li class="hidden-menu__list-item">
+            <a href="https://www.nafrontendzie.pl/szkolenia">Szkolenia</a>
+          </li>
+          <li class="hidden-menu__list-item">
+            <a href="https://www.nafrontendzie.pl/podstawy-react">Kurs React</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="page-content" aria-label="Content" id="page-content">
+      <div class="wrapper">
+        <div class="hidden">
+  <!-- hidden part of the post which is used by the infinite jekyll plugin -->
+  <li class="post-list__item" id="post-short">
+    <div class="meta">
+      <h2 class="meta__title">
+        <a href="https://www.nafrontendzie.pl/podstawy-angularjs-niezbedne-minimum">Podstawy AngularJS - minimum które musisz znać</a>
+      </h2>
+
+      <div class="meta__date">
+        
+        <span class="meta__date-part meta__date-part--day">29</span>
+        <span class="meta__date-part meta__date-part--month">
+          Sty
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2015</span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    
+      <div class="excerpt not-full"><p>Jakiś czas temu pisałem tutaj na blogu na temat <a href="http://nafrontendzie.pl/angular-backbone-ember-wybieramy-framework-javascript/" title="Angular, Backbone, Ember - jak wybrać framework JavaScript">różnego rodzaju frameworków JavaScript</a>. Dla przypomnienia, porównałem w nim takie frameworki jak <strong>BackboneJS</strong>, <strong>EmberJS</strong> oraz <strong>AngularJS</strong>. Myślę, że tematyka “frameworkowa” będzie się na łamach tego bloga przewijać wielokrotnie i dziś jest jeden z takich właśnie momentów - podstawy AngularJS :) Wpis powstał na podstawie krótkiej prezentacji na temat Angulara (lokalnie u mnie w firmie), w której prezentowałem o co generalnie chodzi w tym narzędziu i tutaj uwaga - są to absolutne podstawowe podstawy <strong>jeśli więc na co dzień używasz tego frameworka to ten post raczej nie jest dla Ciebie</strong>!</p>
+
+</div>
+    
+
+    <div class="post-footer">
+      <span class="post-footer__text">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="post-footer__category" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+      <a class="post-footer__more" href="https://www.nafrontendzie.pl/podstawy-angularjs-niezbedne-minimum">Czytaj dalej...</a>
+    </div>
+  </li>
+</div>
+
+<div class="categories">
+  <button class="categories__button categories__button--right" id="search-button">
+    <svg class="svg svg--right" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1216 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"></path></svg>
+  </button>
+  <a class="categories__button " href="https://www.nafrontendzie.pl/" title="Wszystkie wpisy">
+    <svg class="svg" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z"></path></svg>
+    Wszystko
+  </a>
+  <a class="categories__button " href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Programowanie">
+    <svg class="svg" width="2048" height="1792" viewBox="0 0 2048 1792" xmlns="http://www.w3.org/2000/svg"><path d="M448 1168v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm128-256v96q0 16-16 16h-224q-16 0-16-16v-96q0-16 16-16h224q16 0 16 16zm-128-256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm1024 512v96q0 16-16 16h-864q-16 0-16-16v-96q0-16 16-16h864q16 0 16 16zm-640-256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm-128-256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm384 256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm-128-256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm384 256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm384 256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm-512-512v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm256 0v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm256 0v352q0 16-16 16h-224q-16 0-16-16v-96q0-16 16-16h112v-240q0-16 16-16h96q16 0 16 16zm128 752v-896h-1664v896h1664zm128-896v896q0 53-37.5 90.5t-90.5 37.5h-1664q-53 0-90.5-37.5t-37.5-90.5v-896q0-53 37.5-90.5t90.5-37.5h1664q53 0 90.5 37.5t37.5 90.5z"></path></svg>
+    Programowanie
+  </a>
+  <a class="categories__button " href="https://www.nafrontendzie.pl/kategoria/opinie" title="Opinie">
+    <svg class="svg" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M640 896q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm384 0q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm384 0q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-512-512q-204 0-381.5 69.5t-282 187.5-104.5 255q0 112 71.5 213.5t201.5 175.5l87 50-27 96q-24 91-70 172 152-63 275-171l43-38 57 6q69 8 130 8 204 0 381.5-69.5t282-187.5 104.5-255-104.5-255-282-187.5-381.5-69.5zm896 512q0 174-120 321.5t-326 233-450 85.5q-70 0-145-8-198 175-460 242-49 14-114 22h-5q-15 0-27-10.5t-16-27.5v-1q-3-4-.5-12t2-10 4.5-9.5l6-9 7-8.5 8-9q7-8 31-34.5t34.5-38 31-39.5 32.5-51 27-59 26-76q-157-89-247.5-220t-90.5-281q0-130 71-248.5t191-204.5 286-136.5 348-50.5 348 50.5 286 136.5 191 204.5 71 248.5z"></path></svg>
+    Opinie
+  </a>
+</div>
+
+
+<div class="react-ad">
+  <svg class="react-ad__image" width="68px" height="60px" viewBox="0 0 68 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>react-1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="react-logo">
+            <g id="react-1" transform="translate(1.000000, 1.000000)">
+                <ellipse id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="33.4396302" cy="28.9519204" rx="6.08929923" ry="6.06203371"></ellipse>
+                <path d="M33.4396302,16.6275214 C41.6136994,16.6275214 49.2082187,17.7954545 54.9332869,19.7567007 C61.8315413,22.1206134 66.073525,25.7045455 66.073525,28.9499171 C66.073525,32.3315142 61.5779882,36.1398176 54.1706152,38.5818596 C48.5703113,40.4289168 41.1991602,41.3945151 33.4396302,41.3945151 C25.4828922,41.3945151 17.9507551,40.4890163 12.2860567,38.5618265 C5.12016291,36.1237911 0.803723104,32.2674081 0.803723104,28.9499171 C0.803723104,25.7305886 4.85453584,22.174703 11.6561986,19.8147969 C17.4034023,17.8214977 25.1850679,16.6275214 33.4396302,16.6275214 L33.4396302,16.6275214 Z" id="Shape" stroke="#FFFFFF" stroke-width="2.89971152"></path>
+                <path d="M22.6636231,22.8257806 C26.7466331,15.7761122 31.5581052,9.81023763 36.1260858,5.85368886 C41.629798,1.08579718 46.8678833,-0.781293175 49.691177,0.839389334 C52.633198,2.52818458 53.7017432,8.30775076 52.1260918,15.9183476 C50.9347946,21.6718707 48.09339,28.5091876 44.2156373,35.2022658 C40.2412929,42.0636225 35.689411,48.1076264 31.1838125,52.0301188 C25.4828922,56.9923321 19.9691183,58.7873031 17.0834425,57.1305609 C14.2822843,55.5218983 13.2117268,50.2531777 14.5539484,43.2075159 C15.6889004,37.2496546 18.5383543,29.9435618 22.6636231,22.8257806 L22.6636231,22.8257806 Z" id="Shape" stroke="#FFFFFF" stroke-width="2.89971152"></path>
+                <path d="M22.6736848,35.216289 C18.5786009,28.1726306 15.7895167,21.0448328 14.6263921,15.1290412 C13.225813,8.00124344 14.2158776,2.55022106 17.037159,0.925531915 C19.9771676,-0.76927328 25.5392374,1.19597955 31.3749835,6.35451782 C35.7880149,10.2549737 40.3177613,16.1206825 44.2055756,22.8077508 C48.1919939,29.6630975 51.1802984,36.6065902 52.3414107,42.4502625 C53.8124212,49.8465046 52.621124,55.4978585 49.7374605,57.1586074 C46.9383147,58.7712766 41.8189567,57.0644515 36.3575033,52.386709 C31.7452515,48.4341669 26.8090152,42.3280602 22.6736848,35.216289 L22.6736848,35.216289 Z" id="Shape" stroke="#FFFFFF" stroke-width="2.89971152"></path>
+            </g>
+        </g>
+    </g>
+  </svg>
+  <p class="react-ad__text">
+    Kurs "Podstawy React" jest już dostępny!<br>
+    Zapraszam do sprawdzenia mojej oferty.
+  </p>
+  <a class="react-ad__link" href="https://www.nafrontendzie.pl/podstawy-react" title="Podstawy React - informacje o kursach on-line">
+    Sprawdź
+    <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1363 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45l166-166q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z"></path></svg>
+  </a>
+</div>
+
+
+<article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <img class="post-header__image" src="./ng-app_files/kod-programu.jpg" alt="Featured image of the post">
+    
+    <h1 class="post-header__title" itemprop="name headline">Podstawy AngularJS - minimum które musisz znać</h1>
+    <p class="post-header__meta">
+      
+        <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Bartek Dybowski</span></span>
+      
+      <span class="separator"></span>
+      <time class="date" datetime="2015-01-29T17:59:17+00:00" itemprop="datePublished">
+        
+        <span class="meta__date-part meta__date-part--day">29</span>
+        <span class="meta__date-part meta__date-part--month">
+          Sty
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2015</span>
+      </time>
+    </p>
+    <div class="post-header__categories">
+      <span class="icon">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="link" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+    </div>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Jakiś czas temu pisałem tutaj na blogu na temat <a href="http://nafrontendzie.pl/angular-backbone-ember-wybieramy-framework-javascript/" title="Angular, Backbone, Ember - jak wybrać framework JavaScript">różnego rodzaju frameworków JavaScript</a>. Dla przypomnienia, porównałem w nim takie frameworki jak <strong>BackboneJS</strong>, <strong>EmberJS</strong> oraz <strong>AngularJS</strong>. Myślę, że tematyka “frameworkowa” będzie się na łamach tego bloga przewijać wielokrotnie i dziś jest jeden z takich właśnie momentów - podstawy AngularJS :) Wpis powstał na podstawie krótkiej prezentacji na temat Angulara (lokalnie u mnie w firmie), w której prezentowałem o co generalnie chodzi w tym narzędziu i tutaj uwaga - są to absolutne podstawowe podstawy <strong>jeśli więc na co dzień używasz tego frameworka to ten post raczej nie jest dla Ciebie</strong>!</p>
+
+<h2 id="moduł">Moduł</h2>
+
+<p>Skoro dziś przedstawiam podstawy AngularJS to swój wywód zacząć muszę od zagadnienia modułu. Moduł jest podstawową koncepcją frameworka <a href="https://angularjs.org/" title="AngularJS - strona projektu">AngularJS</a>. Modułem może być w zasadzie wszystko: kontrolery, dyrektywy, serwisy itp. itd. Również sama aplikacja to tak na prawdę taki <strong>główny moduł</strong>. Deklaruje się to mniej więcej tak:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'AngularExample'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'ngRoute'</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<p>Na powyższym listingu widzimy wywołanie metody <code class="highlighter-rouge">module</code> należącej do globalnego obiektu <code class="highlighter-rouge">angular</code>. Jako pierwszy parametr podajemy nazwę modułu - u mnie “AngularExample”. Z kolei drugi parametr to lista nazw modułów, od których zależy dany moduł. W przykładzie widzimy tylko jedną zależność od “ngRoute”, która <strong>przyda nam się później</strong>.</p>
+
+<p>Ok, w ten sposób zdefiniowaliśmy główny moduł aplikacji. Trzeba go teraz powiązać ze stroną internetową - u mnie wygląda to tak:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Angular Example<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"styles.css"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular/angular.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"angular/angular-route.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body</span> <span class="na">data-ng-app=</span><span class="s">"AngularExample"</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">data-ng-view</span><span class="nt">&gt;</span>
+            Loading...
+        <span class="nt">&lt;/div&gt;</span>
+
+        <span class="c">&lt;!-- custom module --&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"module.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+        <span class="c">&lt;!-- routes config --&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"routes.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+        <span class="c">&lt;!-- custom controller --&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"controller.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>To co na razie nas interesuje to zaznaczona linia numer 10. To właśnie w pokazany sposób (atrybut <code class="highlighter-rouge">data-ng-app</code>) informujemy Angulara, że wszystko co znajduje się wewnątrz elementu <code class="highlighter-rouge">body</code> to nasza aplikacja.</p>
+
+<h2 id="kontroler">Kontroler</h2>
+
+<p>Podstawy AngularJS nie mogą się obejść również bez opisu kontrolerów (jak to zwykle bywa w MVC)… Kontroler jest sercem danej funkcjonalności - odpowiada za pobranie danych i zasilenie nimi modelu. Poniżej prosty przykład jak taki kontroler może wyglądać:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'AngularExample'</span><span class="p">).</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'exampleController'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s1">'Hello world!'</span><span class="p">;</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">list</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="na">firstName</span><span class="p">:</span> <span class="s1">'John'</span><span class="p">,</span>
+            <span class="na">lastName</span><span class="p">:</span> <span class="s1">'Doe'</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="na">firstName</span><span class="p">:</span> <span class="s1">'Mark'</span><span class="p">,</span>
+            <span class="na">lastName</span><span class="p">:</span> <span class="s1">'Smith'</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="na">firstName</span><span class="p">:</span> <span class="s1">'James'</span><span class="p">,</span>
+            <span class="na">lastName</span><span class="p">:</span> <span class="s1">'Mole'</span>
+        <span class="p">}</span>
+    <span class="p">];</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Jak widzicie, aby odwołać się do modułu, posługujemy się <strong>podobną konstrukcją</strong> jak przy jego deklaracji, z tą różnicą, że tym razem nie podajemy listy zależności - to dobra praktyka aby robić to w ten sposób zamiast przypisywać moduł do zmiennej globalnej. Na rzecz modułu wywołujemy funkcję <code class="highlighter-rouge">controller</code>, której jako pierwszy parametr podajemy nazwę kontrolera, a jako drugi, funkcję wywołania zwrotnego. Zauważyliście pewnie, że funkcja ta przyjmuje parametr <code class="highlighter-rouge">$scope</code> - jest to taka specjalna zmienna, którą można rozpatrywać jako <strong>coś w rodzaju modelu</strong>. Przypisuje się jej właściwości, które później można “zbindować” do widoku - wszystkie te właściwości są<strong>automatycznie obserwowalne</strong>, więc każda ich zmiana w jednym miejscu na widoku powoduje zmianę także w innym miejscu. Powyżej utworzyłem dwie takie właściwości: <code class="highlighter-rouge">message</code> oraz <code class="highlighter-rouge">list</code>. Za chwilę pokażę, jak je połączyć z widokiem. Najpierw jednak omówię jeszcze jeden istotny koncept.</p>
+
+<h2 id="routing">Routing</h2>
+
+<p>Jeśli wrócilibyście do przykładu, w którym pokazałem jak podpiąć moduł aplikacji do widoku, zauważylibyście też taką konstrukcję:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">data-ng-view</span><span class="nt">&gt;</span>
+    Loading...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Natomiast wcześniej jeszcze, przy deklaracji modułu, jako zależność przekazałem mu wartość “ngRoute”. Te dwa elementy służą do czegoś co nazywa się “routingiem” - mówiąc prostym językiem jest to coś, co pozwala na wczytanie do kontenera opatrzonego argumentem <code class="highlighter-rouge">data-ng-view</code> przygotowanego wcześniej “template’u” HTML w zależności od wpisanego w przeglądarkę adresu URL.</p>
+
+<p>Generalnie więc, jeśli w adresie mamy na przykład: “<a class="vglnk" href="http://mojastrona.com/#/widok-jeden" rel="nofollow"><span>http</span><span>://</span><span>mojastrona</span><span>.</span><span>com</span><span>/#/</span><span>widok</span><span>-</span><span>jeden</span></a>” to w kontener wczytany zostanie inny kawałek HTML’a niż gdy w adresie wpiszemy (lub klikniemy w link) dla przykładu “<a class="vglnk" href="http://mojastrona.com/#/widok-dwa" rel="nofollow"><span>http</span><span>://</span><span>mojastrona</span><span>.</span><span>com</span><span>/#/</span><span>widok</span><span>-</span><span>dwa</span></a>”. Te “hashe” w przykładach adresów są nieprzypadkowe - dzięki temu nie nastąpi pełne przeładowanie strony. Zamiast tego zadziała mechanizm “routingu” i wczyta się odpowiedni widok.</p>
+
+<p>Ok. Tyle teorii. Zobaczmy teraz jak skonfigurować taki “routing”:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'AngularExample'</span><span class="p">).</span><span class="nx">config</span><span class="p">([</span><span class="s1">'$routeProvider'</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">$routeProvider</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$routeProvider</span>
+            <span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="p">{</span>
+                <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'example.html'</span><span class="p">,</span>
+                <span class="na">controller</span><span class="p">:</span> <span class="s1">'exampleController'</span>
+            <span class="p">},</span> <span class="kc">null</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">'/list'</span><span class="p">,</span> <span class="p">{</span>
+                <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'list.html'</span><span class="p">,</span>
+                <span class="na">controller</span><span class="p">:</span> <span class="s1">'exampleController'</span>
+            <span class="p">},</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="p">}]);</span>
+</code></pre></div></div>
+
+<p>Ogólnie rzecz biorąc mamy tutaj do czynienia z<strong>konfiguracją modułu</strong>, a konkretniej “routeProvidera” dostarczanego nam wraz z modułem “ngRoute”. Nie będę dokładnie wyjaśniał zawiłości tego modułu. Na potrzeby tego wpisu wystarczy nam tylko tyle, że w powyższym przykładzie zdefiniowałem dwa “routingi”: jeden dla adresu typu “<a class="vglnk" href="http://%E2%80%A6./" rel="nofollow"><span>http</span><span>://…./</span></a><strong>#/</strong>” - dla niego do kontenera wczytana zostanie zawartość pliku <code class="highlighter-rouge">example.html</code> i połączona ona zostanie z naszym kontrolerem “exampleController”. Drugi natomiast odpowiada adresowi typu “<a class="vglnk" href="http://%E2%80%A6/" rel="nofollow"><span>http</span><span>://…/</span></a><strong>#/list</strong>” i dla niego wyświetlona zostanie zawartość pliku <code class="highlighter-rouge">list.html</code> powiązana również z tym samym kontrolerem. Ok, to teraz wreszcie czas na widoki.</p>
+
+<h2 id="widoki">Widoki</h2>
+
+<p>W poprzednim akapicie zdefiniowaliśmy “routingi” dla plików <code class="highlighter-rouge">example.html</code> oraz <code class="highlighter-rouge">list.html</code>. Poniżej zawartość pliku <code class="highlighter-rouge">example.html</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">data-ng-controller=</span><span class="s">"exampleController"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/AngularExample/#list"</span><span class="nt">&gt;</span>Show list<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Powyżej widzimy kontener <code class="highlighter-rouge">div</code>, z którym wiążemy kontroler “exampleController” za pomocą atrybutu <code class="highlighter-rouge">data-ng-controller</code>. W następnej linii mamy do czynienia z “bindowaniem” modelu do widoku. Jak pamiętacie, w kodzie kontrolera przypisałem do zmiennej <code class="highlighter-rouge">$scope</code> właściwość <code class="highlighter-rouge">message</code> - teraz w widoku, w miejscu `` wyrenderowana zostanie aktualna wartość tej właściwości. W trzeciej linii mamy po prostu link do drugiego ze zdefiniowanych wcześniej “routingów”.</p>
+
+<p>Zobaczmy teraz co kryje się w pliku <code class="highlighter-rouge">list.html</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">data-ng-controller=</span><span class="s">"exampleController"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">data-ng-repeat=</span><span class="s">"item in list"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h4&gt;</span>User:<span class="nt">&lt;/h4&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Fist name: <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Last name: <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Change last name: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">data-ng-model=</span><span class="s">"item.lastName"</span><span class="nt">&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/AngularExample/#/"</span><span class="nt">&gt;</span>Go back<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Tutaj jest trochę ciekawiej. Po pierwsze w drugiej linii przykładu widzimy jak można iterować się po elementach tablicy (<code class="highlighter-rouge">data-ng-repeat</code>) - wszystko to co znajduje się wewnątrz tego kontenera wyrenderuje się tyle razy ile jest elementów tablicy <code class="highlighter-rouge">list</code>. W liniach 4 i 5 widzimy odwołanie do aktualnego elementu iteracji (aktualny element tablicy znajduje się w zmiennej <code class="highlighter-rouge">item</code>). W linii szóstej natomiast, mamy przykład powiązania zmiennej modelu z polem tekstowym - robimy to za pomocą atrybutu <code class="highlighter-rouge">data-ng-model</code>. Jeśli użytkownik zmieni wartość pola tekstowego, zmienna modelu zostanie automatycznie zaktualizowana i zmiana ta będzie od razu widoczna wszędzie tam, gdzie ma miejsce “bindowanie” do tej właściwości. I to w zasadzie tyle - wcale nie taki diabeł straszny jak go malują, co nie? ;)</p>
+
+<h2 id="podstawy-angularjs---podsumowanie">Podstawy AngularJS - podsumowanie</h2>
+
+<p>Niestety nie udało mi się wygenerować tego przykładu na <a href="http://codepen.io/" title="codepen.io - strona domowa">codepen.io</a> - okazało się to dla mnie zbyt skomplikowane… pewnie to moje lenistwo bo ludzie robią tam dużo bardziej skomplikowane przykłady ;) Nie zostawiam Was jednak z suchym tekstem… Zamiast tego możecie pobrać <a href="https://www.nafrontendzie.pl/wp-content/uploads/2015/01/AngularExample.zip" title="Przykład w formacie *.zip">ten przykład w formacie *.zip</a> i wypróbować go w domu, do czego zachęcam.</p>
+
+<p>To co dziś pokazałem przedstawia <strong>absolutne podstawy</strong> <strong>AngularJS</strong>. Rzecz jasna to tylko ułamek jego możliwości, wystarczy jednak aby zacząć - moim zdaniem przeanalizowanie i poklikanie takiego przykładu powinno pomóc komuś nieobeznanemu z tym frameworkiem w oswojeniu się i zrozumieniu głównych konceptów. Jednocześnie namawiam do zgłębiania tego tematu bo to <strong>bardzo fajny framework jest</strong>!</p>
+
+
+  </div>
+
+  <div class="post-buttons">
+    <a href="https://www.nafrontendzie.pl/podstawy-angularjs-niezbedne-minimum" class="facebook-btn" alt="Udostępnij na Facebooku">
+      <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"></path></svg>
+      <span class="text">Udostępnij</span>
+    
+    </a><a href="https://www.nafrontendzie.pl/podstawy-angularjs-niezbedne-minimum" class="twitter-btn" alt="Tweetnij o tym" data-title="Podstawy AngularJS - minimum które musisz znać">
+      <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"></path></svg>
+      <span class="text">Tweetnij</span>
+    </a>
+  </div>
+</article>
+
+<div class="newsletter-panel">
+  <h2 class="lead-magnet__header">Chcesz darmowego e-booka?!</h2>
+  <p class="lead-magnet__text">Aby otrzymać mojego e-booka: <strong>Rozmowa Kwalifikacyjna - pytania z podstaw JavaScript</strong> zostaw mi swój e-mail:</p>
+  <!-- Begin MailChimp Signup Form -->
+  <div id="mc_embed_signup" class="signup">
+    <form action="https://nafrontendzie.us14.list-manage.com/subscribe/post?u=18415d8ffcf07136176df30e6&amp;id=3b3a29a3c4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+      <div id="mc_embed_signup_scroll">
+        <div class="mc-field-group">
+        	<input type="email" value="" name="EMAIL" class="required email" placeholder="Adres e-mail" id="mce-EMAIL">
+          <svg class="exclamation" id="exclamation-sign" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M896 128q209 0 385.5 103t279.5 279.5 103 385.5-103 385.5-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103zm128 1247v-190q0-14-9-23.5t-22-9.5h-192q-13 0-23 10t-10 23v190q0 13 10 23t23 10h192q13 0 22-9.5t9-23.5zm-2-344l18-621q0-12-10-18-10-8-24-8h-220q-14 0-24 8-10 6-10 18l17 621q0 10 10 17.5t24 7.5h185q14 0 23.5-7.5t10.5-17.5z"></path></svg>
+        </div>
+      	<div id="mce-responses" class="clear">
+      		<div class="response" id="mce-error-response" style="display:none"></div>
+      		<div class="response" id="mce-success-response" style="display:none"></div>
+      	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_18415d8ffcf07136176df30e6_3b3a29a3c4" tabindex="-1" value=""></div>
+          <div class="clear"><input type="submit" value="Wyślij" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  <!--End mc_embed_signup-->
+  <p class="lead-magnet__more"><strong>To nie wszystko!</strong> Oprócz e-booka otrzymasz ode mnie <strong>zniżkę 10%</strong> na wszystkie moje <strong>kursy on-line!</strong>
+</p></div>
+
+
+
+  <div id="disqus_thread" class="disqus-thread" data-url="https://www.nafrontendzie.pl/podstawy-angularjs-niezbedne-minimum/" data-short="http-nafrontendzie-pl"><iframe id="dsq-app851" name="dsq-app851" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./ng-app_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 2082px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+
+
+
+<h3 class="others">Inne wpisy z tej kategorii</h3>
+
+<ul class="post-list"><li class="post-list__item" id="post-short">
+    <div class="meta">
+      <h2 class="meta__title">
+        <a href="https://www.nafrontendzie.pl/server-side-rendering-react-3-redux">Server Side Rendering w React #3 - Redux</a>
+      </h2>
+
+      <div class="meta__date">
+        
+        <span class="meta__date-part meta__date-part--day">20</span>
+        <span class="meta__date-part meta__date-part--month">
+          Lis
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2017</span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    
+      <div class="excerpt not-full"><p>W <a href="https://www.nafrontendzie.pl/server-side-rendering-react-2-expressjs" title="Server Side Rendering w React #2 - ExpressJS">ostatnim, dosyć długim wpisie</a> pokazałem jak skonfigurować <strong>Server Side Rendering w React</strong> w oparciu o framework ExpressJS po stronie serwera. To jednak nie wszystko - podstawowy zestaw narzędzi używanych w większości aplikacji React, zawiera też przecież bardzo często bibliotekę Redux… Dlatego też dziś, rozszerzę przedstawiony tydzień temu przykład o wsparcie dla tej biblioteki. Jak sam się przekonasz, nie jest to nic trudnego!</p>
+
+</div>
+    
+
+    <div class="post-footer">
+      <span class="post-footer__text">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="post-footer__category" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+      <a class="post-footer__more" href="https://www.nafrontendzie.pl/server-side-rendering-react-3-redux">Czytaj dalej...</a>
+    </div>
+  </li><li class="post-list__item" id="post-short">
+    <div class="meta">
+      <h2 class="meta__title">
+        <a href="https://www.nafrontendzie.pl/server-side-rendering-react-2-expressjs">Server Side Rendering w React #2 - ExpressJS</a>
+      </h2>
+
+      <div class="meta__date">
+        
+        <span class="meta__date-part meta__date-part--day">13</span>
+        <span class="meta__date-part meta__date-part--month">
+          Lis
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2017</span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    
+      <div class="excerpt not-full"><p>Ostatnio, we <a href="https://www.nafrontendzie.pl/server-side-rendering-react-1-wprowadzenie" title="Wprowadzenie do serii na temat SSR w React">wstępie do serii</a> na temat Server Side Renderingu w React, opowiedziałem co nieco czym jest aplikacja izomorficzna/uniwersalna. W poście tym przedstawiłem też kilka zalet oraz wad tego podejścia. Dziś natomiast <strong>przejdziemy do rzeczy</strong>. Zajmiemy się bowiem praktyczną stroną tego zagadnienia - skonfigurujemy uniwersalną aplikację React przy użyciu frameworka <a href="https://expressjs.com/" title="Strona główna projektu ExpressJS">ExpressJS</a> po stronie serwera!</p>
+
+</div>
+    
+
+    <div class="post-footer">
+      <span class="post-footer__text">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="post-footer__category" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+      <a class="post-footer__more" href="https://www.nafrontendzie.pl/server-side-rendering-react-2-expressjs">Czytaj dalej...</a>
+    </div>
+  </li><li class="post-list__item" id="post-short">
+    <div class="meta">
+      <h2 class="meta__title">
+        <a href="https://www.nafrontendzie.pl/server-side-rendering-react-1-wprowadzenie">Server Side Rendering w React #1 - wprowadzenie</a>
+      </h2>
+
+      <div class="meta__date">
+        
+        <span class="meta__date-part meta__date-part--day">24</span>
+        <span class="meta__date-part meta__date-part--month">
+          Paź
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2017</span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    
+      <div class="excerpt not-full"><p>Server Side Rendering w React to temat, do napisania którego zabierałem się już od dość dawna… W dobie rozbudowanych aplikacji internetowych typu SPA rozwiązanie to sprawdza się znakomicie i nie mogę pozwolić sobie na jego pominięcie na moim blogu! Ogólnie tematyka ta jest szeroka, postanowiłem więc podzielić to zagadnienie na <strong>mniejsze części</strong> i zrobić z tego serię. Z dzisiejszego wpisu dowiesz się więc, co to jest aplikacja izomorficzna/uniwersalna, czym jest Server Side Rendering oraz jakie są jego największe zalety. W kolejnych postach przedstawię natomiast różne sposoby konfiguracji tego podejścia w Twojej aplikacji.</p>
+
+</div>
+    
+
+    <div class="post-footer">
+      <span class="post-footer__text">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="post-footer__category" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+      <a class="post-footer__more" href="https://www.nafrontendzie.pl/server-side-rendering-react-1-wprowadzenie">Czytaj dalej...</a>
+    </div>
+  </li><li class="post-list__item" id="post-short">
+    <div class="meta">
+      <h2 class="meta__title">
+        <a href="https://www.nafrontendzie.pl/migracja-bloga-2-deployment-heroku">Migracja bloga #2: Deployment do Heroku</a>
+      </h2>
+
+      <div class="meta__date">
+        
+        <span class="meta__date-part meta__date-part--day">2</span>
+        <span class="meta__date-part meta__date-part--month">
+          Paź
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2017</span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    
+      <div class="excerpt not-full"><p>Zgodnie z obietnicą z <a href="https://www.nafrontendzie.pl/migracja-bloga-1-wordpress-jekyll" title="Wpis na temat migracji bloga z Wordpressa do Jekylla">poprzedniego wpisu tej serii</a>, dziś przedstawię <strong>drugą część</strong> na temat migracji mojego bloga z Wordpressa do Jekylla. Jej tematem będzie deployment do <a href="https://heroku.com/" title="Strona główna serwisu Heroku">Heroku</a> czyli hostowanie bloga w chmurze. Ogólnie nie jest to nic specjalnie skomplikowanego - zresztą sam się zaraz przekonasz. Zapraszam do lektury!</p>
+
+</div>
+    
+
+    <div class="post-footer">
+      <span class="post-footer__text">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="post-footer__category" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+      <a class="post-footer__more" href="https://www.nafrontendzie.pl/migracja-bloga-2-deployment-heroku">Czytaj dalej...</a>
+    </div>
+  </li><li class="post-list__item" id="post-short">
+    <div class="meta">
+      <h2 class="meta__title">
+        <a href="https://www.nafrontendzie.pl/react-v16-co-nowego">React v16 - co nowego?</a>
+      </h2>
+
+      <div class="meta__date">
+        
+        <span class="meta__date-part meta__date-part--day">27</span>
+        <span class="meta__date-part meta__date-part--month">
+          Wrz
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2017</span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    
+      <div class="excerpt"><p>Dziś krótko! Właśnie pojawiła się nowa wersja Reacta oznaczona numerem wersji: 16.0.0! Na pewno zdążyłeś już gdzieś przeczytać, że w wersji tej następuje <strong>bardzo istotna zmiana dotycząca licencji</strong> - wszystkie media społecznościowe o tym trąbiły… Fakt, ta nowość na pewno wiele osób ucieszyła, bo skończą się wreszcie te wszystkie <a href="https://www.nafrontendzie.pl/licencja-reacta-patenty-o-co-chodzi" title="O co chodzi z tymi patentami React?">dyskusje na temat patentów</a>. Niemniej jednak, wprowadzona właśnie wersja Reacta przynosi ze sobą więcej nowości, o których na pewno warto przeczytać!</p>
+
+<p>Na końcu tego artykułu znajdziesz linka do oficjalnego komunikatu Facebooka w tej sprawie. Natomiast, jeśli nie chce Ci się go czytać, to masz tutaj ode mnie <strong>krótką ściągawkę</strong> z jego zawartości:</p>
+
+<ul>
+  <li>zwracanie <strong>tablic</strong> i ciągów znaków z metody <code class="highlighter-rouge">render</code> - nie trzeba będzie wreszcie otaczać elementu dodatkowym “wrapperem”</li>
+  <li>lepsza obsługa błędów - mniejsza podatność na zawieszenie się aplikacji w przypadku wystąpieniu wyjątku</li>
+  <li><strong>portale</strong> - renderowanie <code class="highlighter-rouge">children</code> wewnątrz elementu DOM, który jest poza hierarchią DOM rodzica</li>
+  <li>poprawa Server Side Renderingu - renderowanie na serwerze zostało napisane od nowa, <a href="https://medium.com/@aickin/whats-new-with-server-side-rendering-in-react-16-9b0d78585d67" title="Zmiany w SSR Reacta">więcej w tym artykule</a></li>
+  <li>wsparcie dla własnych atrybutów DOM - głównie zmiana wydajnościowa</li>
+  <li>redukcja rozmiaru plików modułów <code class="highlighter-rouge">react</code>, <code class="highlighter-rouge">react-dom</code> - zmniejszono ich rozmiar o 32%</li>
+  <li><strong>przejście na licencję MIT</strong> - o tym już na pewno wiesz!</li>
+  <li>nowa “core’owa” architektura o nazwie “Fiber” - zmiany są spore (pod spodem), a <a href="https://code.facebook.com/posts/1716776591680069/react-16-a-look-inside-an-api-compatible-rewrite-of-our-frontend-ui-library/" title="O nowej architekturze Reacta">więcej przeczytasz tutaj</a></li>
+</ul>
+
+<p>W skrócie to tyle! Zachęcam jednak do <strong>samodzielnego zapoznania</strong> się z artykułem na temat Reacta w wersji 16.0:</p>
+
+<p><strong><a href="https://facebook.github.io/react/blog/2017/09/26/react-v16.0.html" title="Prezentacja nowej wersji Reacta na blogu Facebooka">React v16.0 - wpis na blogu Facebooka na temat Reacta</a></strong></p>
+</div>
+    
+
+    <div class="post-footer">
+      <span class="post-footer__text">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="post-footer__category" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+      <a class="post-footer__more" href="https://www.nafrontendzie.pl/react-v16-co-nowego">Czytaj dalej...</a>
+    </div>
+  </li><li class="post-list__item" id="post-short">
+    <div class="meta">
+      <h2 class="meta__title">
+        <a href="https://www.nafrontendzie.pl/migracja-bloga-1-wordpress-jekyll">Migracja bloga #1: Wordpress → Jekyll, krok po kroku!</a>
+      </h2>
+
+      <div class="meta__date">
+        
+        <span class="meta__date-part meta__date-part--day">25</span>
+        <span class="meta__date-part meta__date-part--month">
+          Wrz
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2017</span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    
+      <div class="excerpt not-full"><p>Pewnie niektórzy są juz lekko zmęczeni tematem migracji bloga z Wordpressa do Jekylla. Z drugiej strony, <strong>sporo osób</strong> prosiło mnie o opisanie, w jaki sposób przeprowadziłem się z jednej z tych platform na drugą. Postanowiłem więc, że spełnię te prośby i tym samym raz na zawsze zamkniemy ten temat! Początkowo planowałem opisać całość “za jednym zamachem” ale okazało się, że opis samej tylko migracji danych z Wordpressa do Jekylla to prawie 2 tysiące słów. Dlatego też, temat został podzielony na <strong>dwie części</strong>: dziś opisuję jak przeniosłem posty i całą resztę do <a href="https://jekyllrb.com/" title="Strona projektu Jekyll">Jekylla</a>, natomiast za tydzień przedstawię jak przeprowadziłem deployment do <a href="https://heroku.com/" title="Strona główna Heroku.com">Heroku</a>!</p>
+
+</div>
+    
+
+    <div class="post-footer">
+      <span class="post-footer__text">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="post-footer__category" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+      <a class="post-footer__more" href="https://www.nafrontendzie.pl/migracja-bloga-1-wordpress-jekyll">Czytaj dalej...</a>
+    </div>
+  </li><li class="post-list__item" id="post-short">
+    <div class="meta">
+      <h2 class="meta__title">
+        <a href="https://www.nafrontendzie.pl/generatory-es6-podstawy">Generatory ES6 - podstawy</a>
+      </h2>
+
+      <div class="meta__date">
+        
+        <span class="meta__date-part meta__date-part--day">10</span>
+        <span class="meta__date-part meta__date-part--month">
+          Lip
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2017</span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    
+      <div class="excerpt not-full"><p>W sumie to kiedyś już na blogu wyjaśniłem czym są i do czego służą <strong>generatory ES6</strong>. Było to przy okazji <a href="https://nafrontendzie.pl/co-to-jest-redux-saga/">wpisu na temat redux-saga</a>, która korzysta właśnie z tego, dość nowego w JavaScript, mechanizmu. Jednak od czasu tamtego posta, dostałem już kilka wiadomości z prośbą o opisanie generatorów w osobnym wpisie, postanowiłem więc dziś tę potrzebę spełnić. Jednak te maile od czytelników to <strong>fajna sprawa</strong>, bo nie miałem za bardzo pomysłu na dzisiejszy wpis…</p>
+
+</div>
+    
+
+    <div class="post-footer">
+      <span class="post-footer__text">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="post-footer__category" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+      <a class="post-footer__more" href="https://www.nafrontendzie.pl/generatory-es6-podstawy">Czytaj dalej...</a>
+    </div>
+  </li><li class="post-list__item" id="post-short">
+    <div class="meta">
+      <h2 class="meta__title">
+        <a href="https://www.nafrontendzie.pl/konfiguracja-webpack-2-czesc-3-pluginy">Konfiguracja Webpack 2+ - część #3: pluginy</a>
+      </h2>
+
+      <div class="meta__date">
+        
+        <span class="meta__date-part meta__date-part--day">3</span>
+        <span class="meta__date-part meta__date-part--month">
+          Lip
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2017</span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    
+      <div class="excerpt not-full"><p>Za nami już dwie części mini-serii na temat konfigurowania nowej wersji webpacka. Dotychczas <a href="https://nafrontendzie.pl/konfiguracja-webpack-2-czesc-1-wejscie-wyjscie/">dowiedzieliśmy się co nieco</a> na temat podstawowej konfiguracji plików wejściowych oraz wyjściowych. Z <a href="https://nafrontendzie.pl/konfiguracja-webpack-2-czesc-2-loadery/">ostatniego wpisu</a> natomiast, wiemy już czym są loadery i jak możemy je wykorzystać. Dziś przyszła pora na pokazanie trzeciej, istotnej przy konfiguracji <a href="https://webpack.js.org/">webpacka</a> rzeczy, którą są <strong>pluginy</strong>. Myślę, że nie ma co przedłużać - zapraszam do lektury!</p>
+
+</div>
+    
+
+    <div class="post-footer">
+      <span class="post-footer__text">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="post-footer__category" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+      <a class="post-footer__more" href="https://www.nafrontendzie.pl/konfiguracja-webpack-2-czesc-3-pluginy">Czytaj dalej...</a>
+    </div>
+  </li><li class="post-list__item" id="post-short">
+    <div class="meta">
+      <h2 class="meta__title">
+        <a href="https://www.nafrontendzie.pl/konfiguracja-webpack-2-czesc-2-loadery">Konfiguracja Webpack 2+ – część #2: loadery</a>
+      </h2>
+
+      <div class="meta__date">
+        
+        <span class="meta__date-part meta__date-part--day">26</span>
+        <span class="meta__date-part meta__date-part--month">
+          Cze
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2017</span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    
+      <div class="excerpt not-full"><p>W <a href="https://nafrontendzie.pl/konfiguracja-webpack-2-czesc-1-wejscie-wyjscie/">poprzedniem wpisie</a> na temat konfiguracji <a href="https://webpack.js.org/">webpacka 2</a> opisałem jak skonfigurować punkty <strong>wejściowe</strong> oraz <strong>miejsce docelowe</strong> dla generowanych “bundli”. Dziś przyszedł czas na ciąg dalszy, w którym porozmawiamy o <strong>najważniejszej</strong> części każdej webpackowej konfiguracji jaką są <strong>loadery</strong>! W ramach przykładów postaramy się skonfigurować kilka najważniejszych i najczęściej używanych loaderów. Zapraszam do lektury!</p>
+
+</div>
+    
+
+    <div class="post-footer">
+      <span class="post-footer__text">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="post-footer__category" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+      <a class="post-footer__more" href="https://www.nafrontendzie.pl/konfiguracja-webpack-2-czesc-2-loadery">Czytaj dalej...</a>
+    </div>
+  </li><li class="post-list__item" id="post-short">
+    <div class="meta">
+      <h2 class="meta__title">
+        <a href="https://www.nafrontendzie.pl/semantic-ui-tutorial-3-ile-to-kosztuje-czemu-drogo">Semantic UI tutorial #3 - ile to kosztuje i czemu tak drogo?</a>
+      </h2>
+
+      <div class="meta__date">
+        
+        <span class="meta__date-part meta__date-part--day">19</span>
+        <span class="meta__date-part meta__date-part--month">
+          Cze
+            
+        </span>
+        <span class="meta__date-part meta__date-part--year">2017</span>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    
+      <div class="excerpt not-full"><p><em>Dziś ostatnia już część serii autorstwa <strong>Kacpra Tylendy</strong> na kontrowersyjny temat frameworka Semantic UI. Fraza zawarta w tytule: “ile to kosztuje i czemu tak drogo” może sugerować jakie jest ostateczne zdanie autora o tym rozwiązaniu - ale więcej znajdziesz w tekście… W związku z tym zapraszam do jego przeczytania!</em></p>
+
+</div>
+    
+
+    <div class="post-footer">
+      <span class="post-footer__text">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z"></path></svg>
+      </span>
+      
+        <a class="post-footer__category" href="https://www.nafrontendzie.pl/kategoria/programowanie" title="Kategoria: programowanie">programowanie</a>
+      
+      <a class="post-footer__more" href="https://www.nafrontendzie.pl/semantic-ui-tutorial-3-ile-to-kosztuje-czemu-drogo">Czytaj dalej...</a>
+    </div>
+  </li></ul>
+
+
+  <div class="infinite-spinner" id="programming-spinner" data-current="/podstawy-angularjs-niezbedne-minimum"></div>
+
+
+      </div>
+    </main>
+
+    <div class="search-panel" id="search-panel">
+      <div class="search-panel__wrapper">
+        <form class="search-panel__form" action="https://www.nafrontendzie.pl/szukaj" method="GET">
+          <input type="text" placeholder="Wpisz szukaną frazę" id="search-input" name="query">
+        </form>
+      </div>
+    </div>
+
+    <div id="cookie-info" class="cookie cookie--visible">
+  <div class="cookie__wrapper">
+    <p class="cookie__text"><strong>Uwaga!!</strong> Ta strona wykorzystuje ciasteczka, ale tylko do celów statystycznych!</p>
+    <button id="cookie-button" class="cookie__button">Spoko</button>
+  </div>
+</div>
+
+
+    <footer class="site-footer" id="site-footer">
+  <div class="wrapper">
+    <p class="site-footer__text">2017 Na Frontendzie - Wszelkie prawa zastrzeżone</p>
+  </div>
+</footer>
+
+
+    <script defer="" src="./ng-app_files/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script defer="" src="./ng-app_files/vendor-e6cb223e449b215178ab.bundle.js"></script>
+    <script defer="" src="./ng-app_files/common-e6cb223e449b215178ab.bundle.js"></script>
+
+    
+
+    
+      <script defer="" src="./ng-app_files/post-e6cb223e449b215178ab.bundle.js"></script>
+    
+  
+
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./ng-app_files/lY4eZXm_YWu.html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><div id="lo-engage-ext-container"><div data-reactroot=""></div></div><link rel="stylesheet" type="text/css" href="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/css/content.css"><iframe style="display: none;" src="./ng-app_files/saved_resource(2).html"></iframe></body></html>
