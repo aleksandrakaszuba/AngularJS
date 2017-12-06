@@ -1,6 +1,305 @@
-<section class="row">
-  <div class="col-xs-12">
-    <h1>Tutorial</h1>
-    <p>copy</p>
+<section class="row  "  >
+<section class="container"  >
+   <div class="col-xs-12 col-md-6">
+    <h1>Tutorial </h1>
+    <p class="lead">Steps for creating an app</p>
+   
+    
+    <h2>Steps</h2>
+    <ol>
+    	<li>Create index.html - as a base file for the application</li>
+    	<li>Import scripts and css styles</li>
+    	<li>Declare the root of the application</li>
+    	<li>Create a module</li>
+    	<li>Add functionalities with controllers</li>
+    	<li>Create pages and views</li>
+    	<li>Bind data</li>
+    	<li>Create and validate forms</li>
+    	<li>Create filters</li>
+    	<li>Publish</li>
+    </ol>
+    </div>
+     <div class="col-xs-12 col-md-6">
+    <img src="img/appstructure.png" class="img-responsive">
+    </div>
+ </section>
+ </section>
+
+
+
+    <section class="lightbkg2">
+    <section class="container"  >
+       
+           
+    <div class="col-xs-12 lightbkg1">
+    <h3>1. Create index.html - as a base file for the application</h3>
+    <p>With AngularJs we create one page application so the program runs from index.html</p>
+    </div>         
+    <div class="col-xs-12 lightbkg1">
+    <h3>2. Import scripts and css styles</h3>
+     <p>Apart from adding angularJs we need to add other scripts such as angularjs ng routes module, bootstrap package, custom css styles and firebase as a database for the app. </p>
+ <pre>
+<xmp>
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+  rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/customstyle.css">
+        <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+        <script src="js/bootstrap/bootstrap.min.js"></script>
+        <script src="js/lib/angular/angular.min.js"></script>
+        <script src="js/lib/angular/angular-route.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+        <script>
+        // Firebase api keys
+        var config = {
+        apiKey: "",
+        authDomain: "",
+        databaseURL: "",
+        projectId: "",
+        storageBucket: "",
+        messagingSenderId: ""
+        };
+        firebase.initializeApp(config);
+        </script>
+        <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+</head>
+<body>
+ </body>
+</html>
+</xmp>
+</pre>
+    </div>
+    <div class="col-xs-12 lightbkg1">
+<h3>2. Create a module</h3>
+<p>In a separate app.js file declare a module</p>
+
+<p>Every application in Angular is created using modules. A module can have dependencies of other modules, or be a single module all by itself. These modules act as containers for different sections of an application, making code more reusable and testable</p>
+<p>app/app.js</p>
+ 
+<pre><code>var myApp = angular.module('myApp', ['ngRoute', 'firebase']);</code></pre>
+</div>
+       <div class="col-xs-12 lightbkg1">
+    <h3>3. Declare the application root</h3>
+
+    <p><span class="directive">ng-app</span> directive declares the root element of an AngularJS application.
+    Usually it is placed on &lt;html&gt; tag but can be placed anywhere in the document - this gives application developers the freedom to tell AngularJS if the entire HTML page or only a portion of it should be treated as the AngularJS application.</p>
+<p>app/index.html</p>
+<pre>
+<xmp>
+<!doctype html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista</title>
+        ....
+</xmp>
+</pre>
+
+We used the ngApp directive to inform our page that it should consider itself under the control of AngularJS.
+
+</div>
+       <div class="col-xs-12 lightbkg1">
+     <h3>4. Add functionalities with controllers</h3>
+     <p> An Angular Controller allows us to interact with a View and Model, it's the place where presentational logic can take place to keep the UI bindings in sync with the Model. A Controller's purpose is to drive Model and View changes, in Angular it's a meeting place between our business logic and our presentational logic.</p>
+ 
+
+     <pre>
+<xmp>
+angular .module('app', [])
+  .controller('RegistrationController', function () {
+
+});
+</xmp>
+</pre>     
+<p>Example:</p>
+<pre>
+<xmp>
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <script src="js/angular.min.js"></script>
+  <script>
+    function myController($scope) {
+
+      var cities = ['Sydney', 'Toronto',
+        'Hamilton'
+      ];
+
+      $scope.ourCities = cities;
+    }
+  </script>
+</head>
+
+<body ng-controller='myController'>
+  <h2>Number of cities: {{ ourCities.length} }</h2>
+</body>
+</html>
+</xmp>
+</pre>
+<p>Controllers should be defined in separate files, where eeach controller handle one functionality.</p>
+<p>In our case we defined 3 controllers that defined 3 major features of the app: users authentification, displaying creating and modifing lists, creating, displaying and modifing list items.</p>
+</div>
+
+
+   <div class="col-xs-12 lightbkg1">
+     <h3>5. Create pages and views</h3>
+    
+
+<h4>Pages and routes</h4>
+<p>To navigate to different pages in the Single Page Application with no page reloading we can use the ngRoute module and display our pages with <span class="directive">ng-view</span> directive</p>
+ 
+<h4>Urls</h4>
+<p>Contain # as angularJs pages are basically sections within one page, so navigating between them is done via simple links and ids.</p>
+<img src="img/url.png" style="max-width: 400px">
+<h4>Routes</h4>
+<pre><xmp>
+in html:
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+in app.js
+var myApp = angular.module('myApp', ['ngRoute', 'firebase']);
+myApp.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.
+    when('/login', {
+      templateUrl: 'views/login.html',
+      controller: 'RegistrationController'
+    }).
+    when('/register', {
+      templateUrl: 'views/register.html',
+      controller: 'RegistrationController'
+    }). 
+    when('/todo/:uId/:mId/', {
+      templateUrl: 'views/items.html',
+      controller: 'ItemsController'
+    }).
+    when('/mylists', {
+      templateUrl: 'views/mylists.html',
+      controller: 'ListsController',
+      resolve: {
+        currentAuth: function(Authentication) {
+          return Authentication.requireAuth();
+        }
+      }
+    }).
+    otherwise({
+      redirectTo: '/mylists'
+    });
+}]);
+
+</xmp></pre>
+
+<h4>Views</h4>
+<p><span class="directive">ng-include</span> is a general purpose include. Can be used inside a view to avoid repeating yourself, in the cases where several views need the same code included.
+<img src="img/template.png" style="max-width: 400px">
+
+<pre>
+<xmp>
+<div class="userinfo container" ng-show="currentUser" ng-controller="RegistrationController">
+	<span class="h3">Hi {{currentUser.firstname}}!</span>
+	<small>(Not you?
+	<a ng-href="#/login" ng-click="logout()">logout</a>)</small>
+</div>
+</body>
+</xmp>
+</pre>
+
+<pre>
+<xmp>
+<body>
+    <header id="topnav">
+        <nav class="navbar navbar-default" ng-include="'views/nav.html'"></nav>
+    </header>
+    <div id="welcomeUser" ng-include="'views/welcomeuser.html'"></div>
+    <div class="container">
+    <main ng-view></main>
+</div>
+</body>
+</xmp>
+</pre>
+ 
   </div>
-</section>
+
+   <div class="col-xs-12 lightbkg1">
+
+<h3>5. Bind data with Two-way data binding</h3>
+
+ <pre>
+<xmp>
+<!DOCTYPE html>
+<html ng-app>
+
+<head>
+  <title>Example</title>
+    <script src="js/angular.min.js"></script>
+</head>
+
+<body>
+
+  <label>City: </label><input ng-model="city" type="text" /></label>
+  <p>You entered: {{city}}</p>
+
+</body>
+</html>
+</xmp>
+</pre>
+
+<label>City: </label><input ng-model="city" type="text" /></label>
+  <p>You entered: {{city}}</p>
+
+<p>For two-way data binding to work in the example, you need the ng-model attribute in the input field. The ng-model directive establishes two-way data binding between the input field and the variable "city". Thanks to the directive, the value of the variable changes automatically when the value of the input field changes. Where the variable is defined is not important.
+
+The expression in the curly braces within the p tag is AngularJS’s mechanism to generate output. You use expressions to output variable values. Expressions are also subject to two-way data binding. If the value of the variable city changes, the expression is re-evaluated, which eventually leads to the view automatically being updated. In this way the AngularJS framework transfers the content of the input field to the p tag automatically.</p>
+</div>
+   <div class="col-xs-12 lightbkg1">
+<h3>8. Create and validate forms</h3>
+ <pre>
+<xmp>
+<form class="form-inline addMyList "
+        name="myform" ng-submit="addMyList()" novalidate class="">
+        <div class="form-group ">
+          <input type="text" name="todolistname" placeholder="List name"
+          ng-model="todolistname" ng-required="true" class="form-control pull-right">
+        </div>
+        <button type="submit" class="btn btn-primary pull-right"
+        ng-disabled="myform.$invalid">Add list</button>
+      </form>
+</div>
+ 
+</xmp>
+</pre>
+</div>
+   <div class="col-xs-12 lightbkg1">
+
+<h3>9. Create filters</h3>
+<p>Change </p>
+ <pre>
+<xmp>
+<body ng-app ng-controller="MyFilterDemoCtrl">
+<p>
+    <!-- Unfiltered data -->
+    <strong>First Name</strong>: {{data.firstName} }<br/>
+    <strong>Surname:</strong> {{data.surname} }
+</p>
+<p>
+    <!-- Filtered data -->
+    <strong>First Name</strong>: {{data.firstName | lowercase}}<br/>
+    <strong>Surname:</strong> {{data.surname | lowercase }}
+</p>
+</body>
+</xmp>
+</pre>
+
+</div>
+</section></section>
+
+
+
+
+
+  </section>

@@ -1,20 +1,43 @@
-<section class="row">
+<section class="container">
+<div class="row">
 	<div class="col-xs-12">
 		<h1>Angular JS installation - steps</h1>
-		<h2>1. Download AngularJs</h2>
-		<p>Download from: <a href="https://angularjs.org/">https://angularjs.org/</a></p>
+		<h2>1. Get AngularJs</h2>
+		<p>Go to: <a href="https://angularjs.org/">https://angularjs.org/</a> and select needed version and additional modules. Not all are included in the base version of angularJs (ie. ng-routes)</p>
 		<img src="img/download.png" class="img-responsive">
+Aditional modules:
+		<p>angular-route.js: Adds routing support. As we will be building a real-world single-page app in the book we will need this.
+</p>
+<p>
+angular-animate.js: This is useful for creating nice CSS3 animations.
+</p><p>
+angular-mocks.js & angular-scenarios.js: This is useful for testing purposes.
+</p><p>
+angular-resource.js: Provides better support for interacting with REST APIs.
+		</p>
+
+
+
 		<h2>2. Include AngularJs</h2>
+		<p>Include angular script in your index.html file</p>
 		<p>Normally, calls to JavaScript frameworks are placed at the bottom of the page. That way, the layout loads first, and then application would load next. But Angular JS is doing a lot more than just adding basic functionality to your HTML. It's sort of going to take control of all your layout. So it should go at the very top, so it loads it first.
 </p>
 <!-- code -->
+<p>Include by adding a script tag with a path to the downloaded script</p>
+<pre><xmp>
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+</xmp></pre>
+<p>or add a link to a copy hosted on CDN</p>
+<pre>
 <xmp>
 <!doctype html>
 <html ng-app>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
 </head> 
-</xmp>
+</xmp></pre>
 <!-- code -->	 
 			</div>
+			</html>
 		</section>

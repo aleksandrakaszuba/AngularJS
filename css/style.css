@@ -1,11 +1,42 @@
 xmp{
-	background:#f1f1f1;
-	padding:0 10px;
-	color:blue;
-
+	color:#222;
 }
 footer{
 	background: #f1f1f1;
 	padding: 10px;
 	margin-top:30px; 
+}
+
+.directive{
+	color: orange;
+	font-family: monospace;
+}
+
+.lightbkg1{
+	background:#ffffff;
+	overflow: auto;
+	padding: 15px;
+	margin: 20px 0;
+}
+.lightbkg2{
+	background:#222;
+	overflow: auto;
+ 
+ 	overflow: auto;
+
+}
+.darkbkg1{
+	background:#222;
+	overflow: auto;
+	padding: 15px 0;
+	color: #888
+}
+.navbar{
+	margin: 0
+}
+#aboutus, #conclusion{
+	min-height: 600px;
+}
+img{
+	padding: 20px;
 }
