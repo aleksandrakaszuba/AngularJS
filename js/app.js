@@ -7,6 +7,9 @@
        
              .when("/", {
                 templateUrl: "partials/intro.html"
+            }) 
+             .when("/intro", {
+                templateUrl: "partials/intro.html"
             })
             .when("/installation", {
                 templateUrl: "partials/installation.html"
