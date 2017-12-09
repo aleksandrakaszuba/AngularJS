@@ -22,8 +22,6 @@
             .when("/credits", {
                 templateUrl: "partials/credits.html"
             });
-             //HTML5 History API
-     //   $locationProvider.html5Mode(true);
     });
 
 

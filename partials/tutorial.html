@@ -16,6 +16,7 @@
     	<li>Bind data</li>
     	<li>Create and validate forms</li>
     	<li>Create filters</li>
+      <li>Popular directives</li>
     	<li>Publish</li>
     </ol>
     </div>
@@ -147,8 +148,8 @@ angular .module('app', [])
 </div>
 
 
-   <div class="col-xs-12 lightbkg1">
-     <h3>5. Create pages and views</h3>
+<div class="col-xs-12 lightbkg1">
+<h3>5. Create pages and views</h3>
     
 
 <h4>Pages and routes</h4>
@@ -255,6 +256,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
 <p>For two-way data binding to work in the example, you need the ng-model attribute in the input field. The ng-model directive establishes two-way data binding between the input field and the variable "city". Thanks to the directive, the value of the variable changes automatically when the value of the input field changes. Where the variable is defined is not important.
 
 The expression in the curly braces within the p tag is AngularJS’s mechanism to generate output. You use expressions to output variable values. Expressions are also subject to two-way data binding. If the value of the variable city changes, the expression is re-evaluated, which eventually leads to the view automatically being updated. In this way the AngularJS framework transfers the content of the input field to the p tag automatically.</p>
+<p>The <span class="directive">ng-model</span> directive binds an input,select, textarea (or custom form control) to a property on the scope</p>
 </div>
    <div class="col-xs-12 lightbkg1">
 <h3>8. Create and validate forms</h3>
@@ -277,7 +279,20 @@ The expression in the curly braces within the p tag is AngularJS’s mechanism t
    <div class="col-xs-12 lightbkg1">
 
 <h3>9. Create filters</h3>
-<p>Change </p>
+<h4>Types of filers</h4>
+
+<ul>
+    <li><span class="directive">currency</span> Format a number to a currency format.</li>
+    <li><span class="directive">date</span> Format a date to a specified format.</li>
+    <li><span class="directive">filter</span> Select a subset of items from an array.</li>
+    <li><span class="directive">json</span> Format an object to a JSON string.</li>
+    <li><span class="directive">limitTo</span> Limits an array/string, into a specified number of elements/characters.</li>
+    <li><span class="directive">lowercase</span> Format a string to lower case.</li>
+    <li><span class="directive">number</span> Format a number to a string.</li>
+    <li><span class="directive">orderBy</span> Orders an array by an expression.</li>
+    <li><span class="directive">uppercase</span> Format a string to upper case.</li>
+</ul>
+<h4>Uppercase/lowercase example</h4>
  <pre>
 <xmp>
 <body ng-app ng-controller="MyFilterDemoCtrl">
@@ -288,15 +303,81 @@ The expression in the curly braces within the p tag is AngularJS’s mechanism t
 </p>
 <p>
     <!-- Filtered data -->
-    <strong>First Name</strong>: {{data.firstName | lowercase}}<br/>
-    <strong>Surname:</strong> {{data.surname | lowercase }}
+    <strong>First Name</strong>: {{data.firstName | lowercase} }<br/>
+    <strong>Surname:</strong> {{data.surname | lowercase } }
 </p>
 </body>
 </xmp>
+</pre> 
+<h4>Searching</h4>
+<p>|filter - selects a subset of items from array and returns it as a new array.</p>
+<pre>
+<xmp>
+  <input type="text" ng-model="searchText" class="form-control" placeholder="Search lists">
+  <div class="todolist" ng-repeat="(key, todolist) in todolists | filter:searchText" >
+    <div class="list-elements list-unstyled">
+      <div class="col-xs-8">
+        <span class="">{{$index+1} }.</span>
+        <a ng-href="#/todo/{{currentUser.regUser}}/{{todolist.$id}}"><span class="h5">{{todolist.name} }</span></a>
+      </div>
+      <div class="actions col-xs-4 ">
+        <a class=" pull-right" ng-click="deleteMyList(key)">
+          <span> <i class="fa fa-trash" aria-hidden="true"></i> Delete </span>
+        </a>
+        <a class=" pull-right "
+          ng-href="#/todo/{{currentUser.regUser}}/{{todolist.$id}}">
+          <span><i class="fa fa-eye" aria-hidden="true"></i> View </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</xmp>
 </pre>
 
+</div>   
+<div class="col-xs-12 lightbkg1">
+
+<h3>10. Popular directives</h3>
+<p><span class="directive">ng-href</span> - Using AngularJS markup like {{hash} } in an href attribute will make the link go to the wrong URL if the user clicks it before AngularJS has a chance to replace the {{hash} } markup with its value. Until AngularJS replaces the markup the link will be broken and will most likely return a 404 error. The ngHref directive solves this problem</p>
+
+
+<p>
+</p>
+ <pre>
+<xmp>
+ <a href="http://www.website.com/{{hash}}">link1</a>
+ <a ng-href="http://www.website.com/{{hash}}">link1</a>
+</xmp>
+</pre>
+ 
 </div>
-</section></section>
+<div class="col-xs-12 lightbkg1">
+
+<h3>11. Publish</h3>
+<p>How to host your angular app? Like any other HTML page. Angular is a client-side library. Angular apps are perfect candidates for serving with a simple static HTML server. You don't need a server-side engine to dynamically compose application pages because Angular does that on the client-side. </p>
+<p>If the app uses the Angular router, you must configure the server to return the application's host page (index.html) when asked for a file that it does not have.</p>
+ <pre>
+<xmp>
+<html ng-app>
+<head>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js'></script>
+</head>
+<body>
+  {{"hello"+" world"}}
+</body>
+</html>
+</xmp>
+</pre>
+    <img src="img/helloworld.png" class="img-responsive" style="max-width: 400px">
+</div>
+
+<div class="col-xs-12 lightbkg1">
+
+<h3>More information about Angularjs</h3>
+<p>AngularJs referrence materials:<a href="https://docs.angularjs.org/api">https://docs.angularjs.org/api</a></p>
+</div>
+</section>
+</section>
 
 
 
